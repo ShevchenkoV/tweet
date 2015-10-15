@@ -15,14 +15,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/felippenardi/angularjs-and-jasmine-test-boilerplate.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/felippenardi/angularjs-and-jasmine-test-boilerplate/issues"
-  },
-  "homepage": "https://github.com/felippenardi/angularjs-and-jasmine-test-boilerplate#readme"
+  "author": ""
 }
