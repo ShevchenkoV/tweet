@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>AngularJS Instant Tweet Search Application</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script src="oauth.js"></script>
+    <script src="vendor/angular.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
+    <style>
+        .container {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body ng-app="twitterApp">
+    <div class="container" ng-controller="TwitterController">
+        <h1>AngularJS Instant Tweet Search Application</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <button ng-click="connectButton()" type="button" ng-if="!connectedTwitter"class="btn btn-primary">Connect Twitter</button>
+                <button ng-click="signOut()" ng-if="connectedTwitter" type="button" class="btn btn-link" >Sign Out</button>
+            </div>
+            <div class="col-xs-6" ng-show="connectedTwitter">
+				<label> Query:</label>
+                <input type="text" ng-model="searchTerm" ng-change="search()" class="form-control"  placeholder="#ukraine"/>
+<label> Limit:</label>
+                <input type="number" class="form-control" ng-model="limit" placeholder="Text input" >
+<label> Reverse:</label>
+<input type="checkbox" ng-model="check">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row" ng-repeat="t in tweets|limitTo:limit">
+
+                    <div class="col-xs-2 col-sm-1">
+                        <img ng-src="{{t.user.profile_image_url}}" class="img-circle">
+                    </div>
+                    <div class="col-xs-10 col-sm-11">
+                        <small>{{t.user.name}}</small>
+                        <br> <span>{{t.text}}</span><br>
+                        <span>{{t.retweet_count}}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
